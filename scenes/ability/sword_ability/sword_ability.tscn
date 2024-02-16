@@ -1,9 +1,80 @@
-[gd_scene load_steps=2 format=3 uid="uid://dk3u8w7xivyti"]
+[gd_scene load_steps=5 format=3 uid="uid://dk3u8w7xivyti"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cksdrnrqlg" path="res://scenes/ability/sword_ability/sword.png" id="1_x4t74"]
 
+[sub_resource type="Animation" id="Animation_jp4sf"]
+length = 0.75
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 2.5, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 3.14159, 3.22596, 3.48787e-16]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.075, 0.2, 0.35, 0.5, 0.65, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 9.84915),
+"update": 0,
+"values": [Vector2(2.08165e-12, 2.08165e-12), Vector2(1.25, 1.25), Vector2(1, 1), Vector2(2, 2), Vector2(1, 1), Vector2(1, 1), Vector2(2.08165e-12, 2.08165e-12)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.75),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"queue_free"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_1t4qr"]
+resource_name = "swing"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 3.14159]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xsqes"]
+_data = {
+"RESET": SubResource("Animation_jp4sf"),
+"swing": SubResource("Animation_1t4qr")
+}
+
 [node name="SwordAbility" type="Node2D"]
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xsqes")
+}
+autoplay = "RESET"
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_x4t74")
 offset = Vector2(2.08165e-12, -4)
