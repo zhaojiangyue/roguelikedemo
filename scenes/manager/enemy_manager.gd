@@ -1,5 +1,5 @@
 extends Node
-const SPAWN_RADIUS = 330
+const SPAWN_RADIUS = 375
 @export var basic_enemy_scene: PackedScene
 
 func _ready():

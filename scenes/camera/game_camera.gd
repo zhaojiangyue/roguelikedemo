@@ -8,9 +8,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _physics_process(delta):
 	acquire_target()
-	global_position = global_position.lerp(target_position, 1 - exp(-delta * 10))
+	global_position = global_position.lerp(target_position, 1 - exp(-delta * 20))
+	#global_position = global_position.lerp(target_position, 0.05)
 
 func acquire_target():
 	var player_nodes = get_tree().get_nodes_in_group("player")
