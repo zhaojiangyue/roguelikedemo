@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://dk3u8w7xivyti"]
+[gd_scene load_steps=6 format=3 uid="uid://dk3u8w7xivyti"]
 
 [ext_resource type="Texture2D" uid="uid://ca8cksdrnrqlg" path="res://scenes/ability/sword_ability/sword.png" id="1_x4t74"]
 
@@ -66,6 +66,9 @@ _data = {
 "swing": SubResource("Animation_1t4qr")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xbq5s"]
+size = Vector2(24, 24)
+
 [node name="SwordAbility" type="Node2D"]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -78,3 +81,9 @@ autoplay = "RESET"
 scale = Vector2(1e-05, 1e-05)
 texture = ExtResource("1_x4t74")
 offset = Vector2(2.08165e-12, -4)
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(12, 0)
+shape = SubResource("RectangleShape2D_xbq5s")
