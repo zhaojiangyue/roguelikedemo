@@ -15,3 +15,7 @@ func get_direction_to_player():
 	if player_node != null:
 		return (player_node.global_position - global_position).normalized() #vector direction, enemy move from itself to player.
 	return Vector2.ZERO
+
+
+func _on_area_2d_area_entered(other_area):
+	queue_free()
