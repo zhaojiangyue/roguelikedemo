@@ -4,7 +4,7 @@ const MAX_SPEED = 75
 # Called when the node enters the scene tree for the first time.
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	var direction = get_direction_to_player()
 	velocity = MAX_SPEED * direction
 	move_and_slide()
