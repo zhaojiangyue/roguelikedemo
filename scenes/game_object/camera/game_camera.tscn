@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://yb8strn6bwdr"]
 
-[ext_resource type="Script" path="res://scenes/camera/game_camera.gd" id="1_2y0hv"]
+[ext_resource type="Script" path="res://scenes/game_object/camera/game_camera.gd" id="1_2y0hv"]
 
 [node name="GameCamera" type="Camera2D"]
 position_smoothing_speed = 50.0
