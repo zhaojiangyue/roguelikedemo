@@ -3,6 +3,8 @@ extends CharacterBody2D
 const MAX_SPEED = 75
 # Called when the node enters the scene tree for the first time.
 
+@onready var health_component: HealthComponent = $HealthComponent
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	var direction = get_direction_to_player()
@@ -18,4 +20,4 @@ func get_direction_to_player():
 
 
 func _on_area_2d_area_entered(other_area):
-	queue_free()
+	health_component.damage(100)
