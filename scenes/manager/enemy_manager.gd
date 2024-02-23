@@ -2,9 +2,6 @@ extends Node
 const SPAWN_RADIUS = 375
 @export var basic_enemy_scene: PackedScene
 
-func _ready():
-	pass
-
 
 func _on_timer_timeout():
 	var player = get_tree().get_first_node_in_group("player")
