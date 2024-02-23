@@ -5,9 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bbhrs02wf6fhr" path="res://scenes/component/health_component.tscn" id="2_tljmq"]
 [ext_resource type="PackedScene" uid="uid://1tvsshcl1bor" path="res://scenes/component/vial_drop_component.tscn" id="3_bu45k"]
 [ext_resource type="PackedScene" uid="uid://d3ehnsbl8kn4j" path="res://scenes/game_object/experience_vial/experience_vial.tscn" id="4_rbgoe"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_cbnrw"]
-radius = 12.0
+[ext_resource type="PackedScene" uid="uid://cll2orgb16a4i" path="res://scenes/component/hurtbox_area_2d.tscn" id="5_qddsq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_mryje"]
 radius = 6.0
@@ -24,13 +22,7 @@ script = ExtResource("1_tqqor")
 health_component = NodePath("../HealthComponent")
 vial_scene = ExtResource("4_rbgoe")
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -5)
-shape = SubResource("CircleShape2D_cbnrw")
+[node name="HurtboxArea2D" parent="." instance=ExtResource("5_qddsq")]
 
 [node name="BasicEnemy" type="Sprite2D" parent="."]
 position = Vector2(2.08165e-12, 2.08165e-12)
@@ -40,5 +32,3 @@ offset = Vector2(2.08165e-12, -4)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -4)
 shape = SubResource("CircleShape2D_mryje")
-
-[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
